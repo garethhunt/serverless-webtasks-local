@@ -1,0 +1,27 @@
+{
+  "name": "serverless-webtasks-local",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "description": "Local development server for serverless-webtasks",
+  "author": "serverless.com",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/garethhunt/serverless-webtasks-local"
+  },
+  "keywords": [
+    "serverless webtasks",
+    "serverless framework plugin",
+    "serverless applications",
+    "serverless plugins",
+    "serverless.com",
+    "webtasks"
+  ],
+  "main": "index.js",
+  "bin": {},
+  "dependencies": {
+    "webtask-runtime": "^1.7.0"
+  }
+}
