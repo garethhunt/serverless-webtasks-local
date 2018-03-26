@@ -31,16 +31,15 @@ class WebtasksLocal {
       res.end('Done');
     };
 
+    const serverPort = this.options.port || 3000;
     const server = http.createServer(requestHandler);
 
-    server.listen(3000, (err) => {
+    server.listen(serverPort, (err) => {
       if (err) {
         console.error(err);
       }
-      console.log('Server is listening on port 3000');
+      console.log('Server is listening on port ' + serverPort);
     });
-
-    console.log('Running server');
   }
 }
 
