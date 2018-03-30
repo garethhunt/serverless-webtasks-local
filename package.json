@@ -19,7 +19,7 @@
     "serverless.com",
     "webtasks"
   ],
-  "main": "index.js",
+  "main": "lib/index.js",
   "bin": {},
   "dependencies": {
     "webtask-runtime": "^1.7.0"
