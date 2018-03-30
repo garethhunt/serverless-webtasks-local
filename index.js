@@ -1,6 +1,10 @@
 'use strict';
 
 const http = require('http');
+const Runtime = require('webtask-runtime');
+const url = require('url')
+
+const pathRe = /\/([\w-]+)\/?/;
 
 class WebtasksLocal {
   constructor(serverless, options) {
@@ -25,10 +29,29 @@ class WebtasksLocal {
       'wt-local:start': this.serve.bind(this)
     }
   }
+
   serve() {
+    const fnNames = this.serverless.service.getAllFunctions();
+    const handlers = {};
+
+    fnNames.forEach((fnName) => {
+      const wtfn = this.serverless.service.getFunction(fnName);
+      const handler = require(this.serverless.config.servicePath + '/' + wtfn.handler);
+      handlers[wtfn.name] = Runtime.createHandler(handler, {});
+    });
+
     const requestHandler = (req, res) => {
-      console.log(req.url);
-      res.end('Done');
+      const urlPath = url.parse(req.url).pathname;
+      const reResult = urlPath.match(pathRe);
+
+      if (reResult[1] && handlers[reResult[1]]) {
+        return handlers[reResult[1]](req, res);
+      }
+
+      // Return 404 for any URLs that do not match a defined function name
+      console.error(`${urlPath} not found`);
+      res.writeHead(404, "Not Found");
+      res.end();
     };
 
     const serverPort = this.options.port || 3000;
