@@ -23,7 +23,7 @@
   "bin": {},
   "scripts": {
     "ci": "tape lib/*.spec.js",
-    "test": "tape-watch lib/*.spec.js"
+    "test": "tape-watch lib/*.spec.js -w"
   },
   "dependencies": {
     "webtask-runtime": "^1.7.0"
