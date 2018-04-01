@@ -1,9 +1,6 @@
 {
   "name": "serverless-webtasks-local",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=4.0"
-  },
   "description": "Local development server for serverless-webtasks",
   "author": "serverless.com",
   "license": "MIT",
@@ -20,7 +17,11 @@
     "webtasks"
   ],
   "main": "lib/index.js",
-  "bin": {},
+  "files": [
+    "lib/index.js",
+    "lib/functionHandlers.js",
+    "lib/requestHandler.js"
+  ],
   "scripts": {
     "ci": "tape lib/*.spec.js",
     "test": "tape-watch lib/*.spec.js -w"
