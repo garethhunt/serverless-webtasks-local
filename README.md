@@ -4,6 +4,8 @@ Serverless framework plugin that provides a http server to simulate the webtask 
 
 The plugin will read your serverless config and provide an endpoint for each function defined.
 
+See [serverless-webtasks-local-example](https://github.com/garethhunt/serverless-webtasks-local-example) for an example project.
+
 ## To install
 
     $ yarn add -D serverless-webtasks-local
