@@ -29,6 +29,7 @@
     "webtask-runtime": "^1.7.0"
   },
   "devDependencies": {
+    "mock-require": "^3.0.2",
     "tape": "^4.9.0",
     "tape-watch": "^2.3.0"
   }
